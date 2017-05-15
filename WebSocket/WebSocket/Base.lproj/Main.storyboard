@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WebSocket" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,65 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Web Socket Connect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qzf-cB-K5R">
+                                <rect key="frame" x="106" y="20" width="162" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5BC-bl-Y07">
+                                <rect key="frame" x="158" y="96" width="80" height="30"/>
+                                <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="connectAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UMq-fy-iq9"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tc7-AX-DgX">
+                                <rect key="frame" x="16" y="168" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zt7-gR-0Ve">
+                                <rect key="frame" x="158" y="309" width="80" height="30"/>
+                                <state key="normal" title="DisConnect"/>
+                                <connections>
+                                    <action selector="disConnectAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MbG-bQ-khC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIz-xN-kmQ">
+                                <rect key="frame" x="158" y="213" width="80" height="30"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gBt-Yj-S64"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Zt7-gR-0Ve" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="142" id="3Dc-l4-4Ex"/>
+                            <constraint firstItem="Qzf-cB-K5R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="DID-ho-Owd"/>
+                            <constraint firstItem="Zt7-gR-0Ve" firstAttribute="top" secondItem="mIz-xN-kmQ" secondAttribute="bottom" constant="66" id="L3D-11-saT"/>
+                            <constraint firstItem="tc7-AX-DgX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ScL-dh-Tql"/>
+                            <constraint firstItem="Qzf-cB-K5R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Uln-qT-4ed"/>
+                            <constraint firstItem="tc7-AX-DgX" firstAttribute="top" secondItem="5BC-bl-Y07" secondAttribute="bottom" constant="42" id="Z5y-yG-Mrk"/>
+                            <constraint firstItem="mIz-xN-kmQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="142" id="ase-ob-LoG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tc7-AX-DgX" secondAttribute="trailing" id="dyu-mQ-DdQ"/>
+                            <constraint firstItem="5BC-bl-Y07" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="142" id="eJ9-Q0-gRP"/>
+                            <constraint firstItem="5BC-bl-Y07" firstAttribute="top" secondItem="Qzf-cB-K5R" secondAttribute="bottom" constant="55" id="fOc-n2-1z3"/>
+                            <constraint firstItem="Zt7-gR-0Ve" firstAttribute="width" secondItem="mIz-xN-kmQ" secondAttribute="width" id="jTF-BC-9ms"/>
+                            <constraint firstItem="mIz-xN-kmQ" firstAttribute="top" secondItem="tc7-AX-DgX" secondAttribute="bottom" constant="15" id="nCb-B9-ckr"/>
+                            <constraint firstItem="mIz-xN-kmQ" firstAttribute="width" secondItem="5BC-bl-Y07" secondAttribute="width" id="nxS-so-pmE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="txetField" destination="tc7-AX-DgX" id="j8s-5E-zAd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
     </scenes>
 </document>

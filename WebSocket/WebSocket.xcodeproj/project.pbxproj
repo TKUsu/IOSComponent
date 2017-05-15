@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D9DF680F3999A475942CD51 /* Pods_WebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFBFA1AB1D43CBC421F9D451 /* Pods_WebSocket.framework */; };
 		D34A41AB1EC8347900BFB7E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A41AA1EC8347900BFB7E9 /* AppDelegate.swift */; };
 		D34A41AD1EC8347900BFB7E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A41AC1EC8347900BFB7E9 /* ViewController.swift */; };
 		D34A41B01EC8347A00BFB7E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D34A41AE1EC8347A00BFB7E9 /* Main.storyboard */; };
 		D34A41B21EC8347A00BFB7E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D34A41B11EC8347A00BFB7E9 /* Assets.xcassets */; };
 		D34A41B51EC8347A00BFB7E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D34A41B31EC8347A00BFB7E9 /* LaunchScreen.storyboard */; };
+		D34A41BD1EC83BEE00BFB7E9 /* SingletonSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A41BC1EC83BEE00BFB7E9 /* SingletonSocket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5972A77E604BE82B2EF44CCB /* Pods-WebSocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebSocket.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebSocket/Pods-WebSocket.release.xcconfig"; sourceTree = "<group>"; };
 		D34A41A71EC8347900BFB7E9 /* WebSocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebSocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34A41AA1EC8347900BFB7E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D34A41AC1EC8347900BFB7E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,9 @@
 		D34A41B11EC8347A00BFB7E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D34A41B41EC8347A00BFB7E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D34A41B61EC8347A00BFB7E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D34A41BC1EC83BEE00BFB7E9 /* SingletonSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingletonSocket.swift; sourceTree = "<group>"; };
+		FAC6877615E02DDEDD0B9418 /* Pods-WebSocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebSocket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebSocket/Pods-WebSocket.debug.xcconfig"; sourceTree = "<group>"; };
+		FFBFA1AB1D43CBC421F9D451 /* Pods_WebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D9DF680F3999A475942CD51 /* Pods_WebSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05C0790794FA05004806D485 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FAC6877615E02DDEDD0B9418 /* Pods-WebSocket.debug.xcconfig */,
+				5972A77E604BE82B2EF44CCB /* Pods-WebSocket.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9E368AFFABC34054522A7903 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FFBFA1AB1D43CBC421F9D451 /* Pods_WebSocket.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D34A419E1EC8347900BFB7E9 = {
 			isa = PBXGroup;
 			children = (
 				D34A41A91EC8347900BFB7E9 /* WebSocket */,
 				D34A41A81EC8347900BFB7E9 /* Products */,
+				05C0790794FA05004806D485 /* Pods */,
+				9E368AFFABC34054522A7903 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +82,7 @@
 			children = (
 				D34A41AA1EC8347900BFB7E9 /* AppDelegate.swift */,
 				D34A41AC1EC8347900BFB7E9 /* ViewController.swift */,
+				D34A41BC1EC83BEE00BFB7E9 /* SingletonSocket.swift */,
 				D34A41AE1EC8347A00BFB7E9 /* Main.storyboard */,
 				D34A41B11EC8347A00BFB7E9 /* Assets.xcassets */,
 				D34A41B31EC8347A00BFB7E9 /* LaunchScreen.storyboard */,
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D34A41B91EC8347A00BFB7E9 /* Build configuration list for PBXNativeTarget "WebSocket" */;
 			buildPhases = (
+				5A19F847EF2B95C099AAA7EA /* [CP] Check Pods Manifest.lock */,
 				D34A41A31EC8347900BFB7E9 /* Sources */,
 				D34A41A41EC8347900BFB7E9 /* Frameworks */,
 				D34A41A51EC8347900BFB7E9 /* Resources */,
+				64338BE21B56127F73DA8BD5 /* [CP] Embed Pods Frameworks */,
+				2B3F5EFA02F6D79F13A337F4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,6 +162,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2B3F5EFA02F6D79F13A337F4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebSocket/Pods-WebSocket-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A19F847EF2B95C099AAA7EA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		64338BE21B56127F73DA8BD5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebSocket/Pods-WebSocket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D34A41A31EC8347900BFB7E9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -139,6 +217,7 @@
 			files = (
 				D34A41AD1EC8347900BFB7E9 /* ViewController.swift in Sources */,
 				D34A41AB1EC8347900BFB7E9 /* AppDelegate.swift in Sources */,
+				D34A41BD1EC83BEE00BFB7E9 /* SingletonSocket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +336,7 @@
 		};
 		D34A41BA1EC8347A00BFB7E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAC6877615E02DDEDD0B9418 /* Pods-WebSocket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 73JT68725H;
@@ -270,6 +350,7 @@
 		};
 		D34A41BB1EC8347A00BFB7E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5972A77E604BE82B2EF44CCB /* Pods-WebSocket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 73JT68725H;
@@ -300,6 +381,7 @@
 				D34A41BB1EC8347A00BFB7E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
