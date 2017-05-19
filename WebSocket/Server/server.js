@@ -14,7 +14,8 @@ server.listen(port, function() {
 wsServer = new WebSocketServer({
     httpServer: server,
     // You should not use autoAcceptConnections for production
-    // applications, as it defeats all standard cross-origin protection
+    // applications, as it defeats all stand2
+ard cross-origin protection
     // facilities built into the protocol and the browser.  You should
     // *always* verify the connection's origin and decide whether or not
     // to accept it.
@@ -34,19 +35,39 @@ wsServer.on('request', function(request) {
         return;
     }
 
-    var connection = request.accept('room-chat', request.origin);
+    var connectionChat = request.accept('room-chat', request.origin);
     console.log((new Date()) + ' Connection accepted.');
-    connection.on('message', function(message) {
+    if (connectionChat.connected){
+        var number = "Hi I'm server";
+        connection.sendUTF(number);
+    }
+    connectionChat.on('message', function(message) {
         if (message.type === 'utf8') {
             console.log('Received Message: ' + message.utf8Data);
-            connection.sendUTF(message.utf8Data);
+            connectionChat.sendUTF(message.utf8Data);
         }
         else if (message.type === 'binary') {
             console.log('Received Binary Message of ' + message.binaryData.length + ' bytes');
-            connection.sendBytes(message.binaryData);
+            connectionChat.sendBytes(message.binaryData);
         }
     });
-    connection.on('close', function(reasonCode, description) {
-        console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected.');
+    connectionChat.on('close', function(reasonCode, description) {
+        console.log((new Date()) + ' Peer ' + connectionChat.remoteAddress + ' disconnected.');
     });
+
+    // var test = request.accept('test', request.origin);
+    // console.log((new Date()) + ' Connection accepted.');
+    // test.on('message', function(message) {
+    //     if (message.type === 'utf8') {
+    //         console.log('Received Message: ' + message.utf8Data);
+    //         test.sendUTF(message.utf8Data);
+    //     }
+    //     else if (message.type === 'binary') {
+    //         console.log('Received Binary Message of ' + message.binaryData.length + ' bytes');
+    //         test.sendBytes(message.binaryData);
+    //     }
+    // });
+    // test.on('close', function(reasonCode, description) {
+    //     console.log((new Date()) + ' Peer ' + test.remoteAddress + ' disconnected.');
+    // });
 });

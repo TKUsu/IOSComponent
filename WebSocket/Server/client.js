@@ -1,7 +1,17 @@
 var WebSocketClient = require('websocket').client;
-var port = 3000;
+var http = require('http');
+var port = 8080;
 
 var client = new WebSocketClient();
+
+var server = http.createServer(function(request, response) {
+    console.log((new Date()) + ' Received request for ' + request.url);
+    response.writeHead(404);
+    response.end();
+});
+server.listen(port, function() {
+    console.log((new Date()) + ' Server is listening on port ' + port);
+});
 
 client.on('connectFailed', function(error) {
     console.log('Connect Error: ' + error.toString());
@@ -13,7 +23,7 @@ client.on('connect', function(connection) {
         console.log("Connection Error: " + error.toString());
     });
     connection.on('close', function() {
-        console.log('echo-protocol Connection Closed');
+        console.log('room-chat Connection Closed');
     });
     connection.on('message', function(message) {
         if (message.type === 'utf8') {
@@ -31,4 +41,4 @@ client.on('connect', function(connection) {
     sendNumber();
 });
 
-client.connect('ws://localhost:' + port + '/', 'room-chat');
+client.connect('ws://localhost:3000', 'room-chat');

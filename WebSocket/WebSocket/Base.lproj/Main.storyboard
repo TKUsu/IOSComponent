@@ -55,10 +55,25 @@
                                     <action selector="sendAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gBt-Yj-S64"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaH-rH-4y8">
+                                <rect key="frame" x="151" y="420" width="94" height="30"/>
+                                <state key="normal" title="Peer Connect"/>
+                                <connections>
+                                    <action selector="peerConnectAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vR1-Ha-WXA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1J-ud-m8h">
+                                <rect key="frame" x="182" y="509" width="33" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Zt7-gR-0Ve" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="142" id="3Dc-l4-4Ex"/>
+                            <constraint firstItem="G1J-ud-m8h" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="166" id="4UB-bL-4We"/>
+                            <constraint firstItem="eaH-rH-4y8" firstAttribute="top" secondItem="Zt7-gR-0Ve" secondAttribute="bottom" constant="81" id="7Je-ww-Ojo"/>
                             <constraint firstItem="Qzf-cB-K5R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="DID-ho-Owd"/>
                             <constraint firstItem="Zt7-gR-0Ve" firstAttribute="top" secondItem="mIz-xN-kmQ" secondAttribute="bottom" constant="66" id="L3D-11-saT"/>
                             <constraint firstItem="tc7-AX-DgX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ScL-dh-Tql"/>
@@ -69,11 +84,14 @@
                             <constraint firstItem="5BC-bl-Y07" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="142" id="eJ9-Q0-gRP"/>
                             <constraint firstItem="5BC-bl-Y07" firstAttribute="top" secondItem="Qzf-cB-K5R" secondAttribute="bottom" constant="55" id="fOc-n2-1z3"/>
                             <constraint firstItem="Zt7-gR-0Ve" firstAttribute="width" secondItem="mIz-xN-kmQ" secondAttribute="width" id="jTF-BC-9ms"/>
+                            <constraint firstItem="G1J-ud-m8h" firstAttribute="top" secondItem="eaH-rH-4y8" secondAttribute="bottom" constant="59" id="n4G-6K-uaq"/>
                             <constraint firstItem="mIz-xN-kmQ" firstAttribute="top" secondItem="tc7-AX-DgX" secondAttribute="bottom" constant="15" id="nCb-B9-ckr"/>
                             <constraint firstItem="mIz-xN-kmQ" firstAttribute="width" secondItem="5BC-bl-Y07" secondAttribute="width" id="nxS-so-pmE"/>
+                            <constraint firstItem="eaH-rH-4y8" firstAttribute="centerX" secondItem="Zt7-gR-0Ve" secondAttribute="centerX" id="yXT-iV-XX5"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="text" destination="G1J-ud-m8h" id="QNK-Th-VkV"/>
                         <outlet property="txetField" destination="tc7-AX-DgX" id="j8s-5E-zAd"/>
                     </connections>
                 </viewController>

@@ -11,7 +11,7 @@ import UIKit
 import Starscream
 
 class SingletonSocket{
-    let socket: WebSocket = WebSocket(url: NSURL(string: "http://localhost:3000/")! as URL, protocols: ["room-chat"])
+    let socket: WebSocket = WebSocket(url: NSURL(string: "ws://localhost:8080")! as URL, protocols: ["room-chat"])
     
     class var sharedInstance : SingletonSocket{
         struct Static{
@@ -24,5 +24,7 @@ class SingletonSocket{
         return Static.instance
     }
 }
+
+
 
 //原文網址：https://read01.com/J0nagd.html

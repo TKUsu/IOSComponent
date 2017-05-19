@@ -13,25 +13,37 @@ class ViewController: UIViewController, WebSocketDelegate {
 
     @IBOutlet weak var txetField: UITextField!
     
+    @IBOutlet weak var text: UILabel!
+    let socket = SingletonSocket.sharedInstance.socket
+    let socket2 = testConnect.sharedInstance.socket
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     @IBAction func connectAction(_ sender: UIButton) {
-        SingletonSocket.sharedInstance.socket.delegate = self
-        SingletonSocket.sharedInstance.socket.connect()
-        SingletonSocket.sharedInstance.socket.write(string: "hello world")
+        socket.delegate = self
+        socket.write(string: "hello world")
+        
     }
     
     @IBAction func sendAction(_ sender: UIButton) {
-        SingletonSocket.sharedInstance.socket.write(string: txetField.text!) { 
+        socket.write(string: txetField.text!) {
             print("***Message was send***")
+        }
+        
+        let temp = ["email":"peter@gmail.com", "password":"123", "time":"12:00"]
+        socket2.write(data: temp as! Data) {
+            print("***Message send: \(temp)")
         }
     }
     
+    @IBAction func peerConnectAction(_ sender: UIButton) {
+        socket2.delegate = self
+    }
+    
     @IBAction func disConnectAction(_ sender: UIButton) {
-        SingletonSocket.sharedInstance.socket.disconnect()
+        socket.disconnect()
     }
     
     func websocketDidConnect(socket: WebSocket) {
