@@ -1,4 +1,4 @@
-#IOSComponent#
+#IOSComponent
 
 *Tutorial*
 
