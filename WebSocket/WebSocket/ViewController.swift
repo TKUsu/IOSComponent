@@ -19,6 +19,9 @@ class ViewController: UIViewController, WebSocketDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //set this if you are planning on using the socket in a VOIP background setting (using the background VOIP service).
+        socket.voipEnabled = true
     }
     
     @IBAction func connectAction(_ sender: UIButton) {
@@ -60,6 +63,6 @@ class ViewController: UIViewController, WebSocketDelegate {
     
     func websocketDidReceiveMessage(socket: WebSocket, text: String) {
         
-        print("Receive Message: \(text)")
+        print("Server Receive Message: \(text)")
     }
 }
