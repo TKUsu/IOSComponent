@@ -14,8 +14,7 @@ server.listen(port, function() {
 wsServer = new WebSocketServer({
     httpServer: server,
     // You should not use autoAcceptConnections for production
-    // applications, as it defeats all stand2
-ard cross-origin protection
+    // applications, as it defeats all standard cross-origin protection
     // facilities built into the protocol and the browser.  You should
     // *always* verify the connection's origin and decide whether or not
     // to accept it.
@@ -27,6 +26,16 @@ function originIsAllowed(origin) {
     return true;
 }
 
+var json = {
+    "type": "message",
+    "data":
+    {
+        "time": 1472513071731, "text": ":]", "author": "iPhone Simulator", "color": "orange"
+    }
+};
+
+var binaryJson;
+
 wsServer.on('request', function(request) {
     if (!originIsAllowed(request.origin)) {
         // Make sure we only accept requests from an allowed origin
@@ -35,39 +44,41 @@ wsServer.on('request', function(request) {
         return;
     }
 
-    var connectionChat = request.accept('room-chat', request.origin);
+    //protocol[room-chat]
+    var connection = request.accept('room-chat', request.origin);
     console.log((new Date()) + ' Connection accepted.');
-    if (connectionChat.connected){
-        var number = "Hi I'm server";
-        connection.sendUTF(number);
-    }
-    connectionChat.on('message', function(message) {
-        if (message.type === 'utf8') {
-            console.log('Received Message: ' + message.utf8Data);
-            connectionChat.sendUTF(message.utf8Data);
-        }
-        else if (message.type === 'binary') {
-            console.log('Received Binary Message of ' + message.binaryData.length + ' bytes');
-            connectionChat.sendBytes(message.binaryData);
-        }
-    });
-    connectionChat.on('close', function(reasonCode, description) {
-        console.log((new Date()) + ' Peer ' + connectionChat.remoteAddress + ' disconnected.');
-    });
 
-    // var test = request.accept('test', request.origin);
-    // console.log((new Date()) + ' Connection accepted.');
-    // test.on('message', function(message) {
-    //     if (message.type === 'utf8') {
-    //         console.log('Received Message: ' + message.utf8Data);
-    //         test.sendUTF(message.utf8Data);
-    //     }
-    //     else if (message.type === 'binary') {
-    //         console.log('Received Binary Message of ' + message.binaryData.length + ' bytes');
-    //         test.sendBytes(message.binaryData);
-    //     }
-    // });
-    // test.on('close', function(reasonCode, description) {
-    //     console.log((new Date()) + ' Peer ' + test.remoteAddress + ' disconnected.');
-    // });
+    console.log("*****[Outside]*****");
+    connection.sendUTF(JSON.stringify(json));
+
+    /*//problem: change Buffer
+    var jsonBuf = new Buffer.from(JSON.stringify(json));
+    if (Buffer.isBuffer(jsonBuf)) {
+        WebSocketConnection.prototype.sendBytes(json);
+    }else {
+        console.log("[ERROR_BUFFER]: send data isn't buffer");
+    }
+    */
+
+    connection.on('message', function(message) {
+        //String
+        console.log("*****[Intside]*****");
+        if (message.type === 'utf8') {
+            console.log("*****[Intside-1]*****");
+            console.log('Received Message: ' + message.utf8Data);
+            connection.sendUTF(JSON.stringify(json));
+        }//JSON
+        else if (message.type === 'binary') {
+            console.log("*****[Intside-2]*****");
+            console.log('Received Binary Message of ' + message.binaryData.length + ' bytes');
+            connection.sendBytes(message.binaryData);
+
+            //Binary to Json
+            binaryJson = JSON.parse(message.binaryData);
+            console.log(binaryJson);
+        }
+    });
+    connection.on('close', function(reasonCode, description) {
+        console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected.');
+    });
 });

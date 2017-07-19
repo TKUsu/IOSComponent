@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -56,14 +56,24 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaH-rH-4y8">
-                                <rect key="frame" x="151" y="420" width="94" height="30"/>
-                                <state key="normal" title="Peer Connect"/>
+                                <rect key="frame" x="129" y="420" width="139" height="30"/>
+                                <state key="normal" title="Send Json with data"/>
                                 <connections>
-                                    <action selector="peerConnectAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vR1-Ha-WXA"/>
+                                    <action selector="sendJsonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zoc-qP-JHd"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1J-ud-m8h">
-                                <rect key="frame" x="182" y="509" width="33" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbJ-I0-m8S">
+                                <rect key="frame" x="125" y="505" width="148" height="30"/>
+                                <state key="normal" title="Send Json with string"/>
+                                <connections>
+                                    <action selector="snedJsonwithStringAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jIX-2a-oFf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1J-ud-m8h">
+                                <rect key="frame" x="182" y="600" width="33" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="3ff-aB-NSZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -71,10 +81,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="G1J-ud-m8h" firstAttribute="centerX" secondItem="TbJ-I0-m8S" secondAttribute="centerX" id="0P4-qD-If9"/>
                             <constraint firstItem="Zt7-gR-0Ve" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="142" id="3Dc-l4-4Ex"/>
-                            <constraint firstItem="G1J-ud-m8h" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="166" id="4UB-bL-4We"/>
-                            <constraint firstItem="eaH-rH-4y8" firstAttribute="top" secondItem="Zt7-gR-0Ve" secondAttribute="bottom" constant="81" id="7Je-ww-Ojo"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="G1J-ud-m8h" secondAttribute="bottom" constant="45" id="58h-89-CAL"/>
+                            <constraint firstItem="G1J-ud-m8h" firstAttribute="top" secondItem="TbJ-I0-m8S" secondAttribute="bottom" constant="65" id="6VY-oT-WuW"/>
+                            <constraint firstItem="eaH-rH-4y8" firstAttribute="centerX" secondItem="TbJ-I0-m8S" secondAttribute="centerX" id="7b7-Bg-NYP"/>
                             <constraint firstItem="Qzf-cB-K5R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="DID-ho-Owd"/>
+                            <constraint firstItem="TbJ-I0-m8S" firstAttribute="top" secondItem="eaH-rH-4y8" secondAttribute="bottom" constant="55" id="Ip4-vb-WaW"/>
+                            <constraint firstItem="eaH-rH-4y8" firstAttribute="trailing" secondItem="Qzf-cB-K5R" secondAttribute="trailing" id="K4a-BW-6ZL"/>
                             <constraint firstItem="Zt7-gR-0Ve" firstAttribute="top" secondItem="mIz-xN-kmQ" secondAttribute="bottom" constant="66" id="L3D-11-saT"/>
                             <constraint firstItem="tc7-AX-DgX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ScL-dh-Tql"/>
                             <constraint firstItem="Qzf-cB-K5R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Uln-qT-4ed"/>
@@ -84,10 +98,8 @@
                             <constraint firstItem="5BC-bl-Y07" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="142" id="eJ9-Q0-gRP"/>
                             <constraint firstItem="5BC-bl-Y07" firstAttribute="top" secondItem="Qzf-cB-K5R" secondAttribute="bottom" constant="55" id="fOc-n2-1z3"/>
                             <constraint firstItem="Zt7-gR-0Ve" firstAttribute="width" secondItem="mIz-xN-kmQ" secondAttribute="width" id="jTF-BC-9ms"/>
-                            <constraint firstItem="G1J-ud-m8h" firstAttribute="top" secondItem="eaH-rH-4y8" secondAttribute="bottom" constant="59" id="n4G-6K-uaq"/>
                             <constraint firstItem="mIz-xN-kmQ" firstAttribute="top" secondItem="tc7-AX-DgX" secondAttribute="bottom" constant="15" id="nCb-B9-ckr"/>
                             <constraint firstItem="mIz-xN-kmQ" firstAttribute="width" secondItem="5BC-bl-Y07" secondAttribute="width" id="nxS-so-pmE"/>
-                            <constraint firstItem="eaH-rH-4y8" firstAttribute="centerX" secondItem="Zt7-gR-0Ve" secondAttribute="centerX" id="yXT-iV-XX5"/>
                         </constraints>
                     </view>
                     <connections>
