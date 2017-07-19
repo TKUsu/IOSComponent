@@ -21,15 +21,23 @@ socket.disconnect()
 ```
 - Json parse
 ```swift
-//Json -> string
-let sendData = try JSONSerialization.data(withJSONObject: sendJSON, options: [])
-let sendString = String(data: sendData, encoding: String.Encoding.utf8)
-socket.write(string: sendString!)
+//Json(json) -> string
+guard JSONSerialization.isValidJSONObject(json) else {
+    return
+}
+do {
+    let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
+    //Encode: UTF8
+    let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)
+    socket.write(string: jsonString!)
+} catch let error {
+    print("[ERROR_JsonToString]: \(error)")
+}
 
-//String -> Json
+//String(jsonString) -> Json
 var json: [Dictionary<String, Any>] = []
 
-guard let data = text.data(using: .utf16),
+guard let data = jsonString.data(using: .utf16),
             let jsonData = try? JSONSerialization.jsonObject(with: data, options: []),
                 let jsonDict = jsonData as? [String: Any] else {
             return []
@@ -37,7 +45,7 @@ guard let data = text.data(using: .utf16),
         
 json.append(jsonDict)
 
-//Data -> Json
+//Data(data) -> Json
 var json: [Dictionary<String, Any>] = []
         
 guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: []),
@@ -46,10 +54,10 @@ guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: []),
         }
 json.append(jsonDict)
 
-//Json -> Data
+//Json(json) -> Data
 do{
-        let sendDATA = try JSONSerialization.data(withJSONObject: sendJSON, options: [])
-        socket.write(data: sendDATA)
+        let data = try JSONSerialization.data(withJSONObject: json, options: [])
+        socket.write(data: data)
 } catch let error {
         print("[ERROR]: \(error)")
 }
