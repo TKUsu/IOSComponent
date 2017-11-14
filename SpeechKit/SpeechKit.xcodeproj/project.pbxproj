@@ -12,6 +12,8 @@
 		D39568221F4C6B9F007754E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D39568201F4C6B9F007754E1 /* Main.storyboard */; };
 		D39568241F4C6B9F007754E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39568231F4C6B9F007754E1 /* Assets.xcassets */; };
 		D39568271F4C6B9F007754E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D39568251F4C6B9F007754E1 /* LaunchScreen.storyboard */; };
+		D39568341F509C2D007754E1 /* RecordingVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568321F509C2D007754E1 /* RecordingVoice.swift */; };
+		D39568351F509C2D007754E1 /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568331F509C2D007754E1 /* Speech.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		D39568231F4C6B9F007754E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D39568261F4C6B9F007754E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D39568281F4C6B9F007754E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D39568321F509C2D007754E1 /* RecordingVoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingVoice.swift; sourceTree = "<group>"; };
+		D39568331F509C2D007754E1 /* Speech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				D395681C1F4C6B9F007754E1 /* AppDelegate.swift */,
 				D395681E1F4C6B9F007754E1 /* ViewController.swift */,
+				D39568321F509C2D007754E1 /* RecordingVoice.swift */,
+				D39568331F509C2D007754E1 /* Speech.swift */,
 				D39568201F4C6B9F007754E1 /* Main.storyboard */,
 				D39568231F4C6B9F007754E1 /* Assets.xcassets */,
 				D39568251F4C6B9F007754E1 /* LaunchScreen.storyboard */,
@@ -96,7 +102,6 @@
 				TargetAttributes = {
 					D39568181F4C6B9F007754E1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 73JT68725H;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -137,8 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D39568341F509C2D007754E1 /* RecordingVoice.swift in Sources */,
 				D395681F1F4C6B9F007754E1 /* ViewController.swift in Sources */,
 				D395681D1F4C6B9F007754E1 /* AppDelegate.swift in Sources */,
+				D39568351F509C2D007754E1 /* Speech.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +268,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 73JT68725H;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SpeechKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SuJustin.SpeechKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SuJustin.SpeechKitV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -274,10 +281,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 73JT68725H;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SpeechKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SuJustin.SpeechKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SuJustin.SpeechKitV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

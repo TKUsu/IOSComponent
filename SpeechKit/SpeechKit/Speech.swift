@@ -15,12 +15,6 @@ class Speech: NSObject{
     
     override init() {
         super.init()
-        if getAccount() == "user1" {
-            languageTW()
-        }else if getAccount() == "user2"{
-            languageEN()
-        }
-        
         do{
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
             do{
@@ -46,5 +40,8 @@ class Speech: NSObject{
     }
     func languageEN() {
         myUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+    }
+    func language(code: String) {
+        myUtterance.voice = AVSpeechSynthesisVoice(language: code)
     }
 }

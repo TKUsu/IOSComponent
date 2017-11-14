@@ -6,7 +6,6 @@
 //  Copyright © 2017年 SuJustin. All rights reserved.
 //
 
-import AVFoundation
 import UIKit
 import Speech
 
@@ -29,12 +28,6 @@ class RecordingVoice: NSObject {
 
     override init() {
         super.init()
-        if getAccount() == "user1" {
-            languageTW()
-        }else if getAccount() == "user2"{
-            languageEN()
-        }
-        
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
             var flag = false
             switch authStatus {
@@ -59,19 +52,13 @@ class RecordingVoice: NSObject {
         }
     }
     
-    func start(button: UIButton) {
+    func start() {
         if audioEngine.isRunning {
             stopRecording()
             isEngineFlag = false
-            DispatchQueue.main.async {
-                button.setImage(UIImage(named: "Mute Mic"), for: .normal)
-            }
         } else {
             isEngineFlag = true
             recognition()
-            DispatchQueue.main.async {
-                button.setImage(UIImage(named: "Mic"), for: .normal)
-            }
         }
     }
     
@@ -138,6 +125,9 @@ class RecordingVoice: NSObject {
     }
     func languageEN() {
         speechRecognizer = SFSpeechRecognizer(locale: .init(identifier: "en-US"))
+    }
+    func language(code: String) {
+        speechRecognizer = SFSpeechRecognizer(locale: .init(identifier: code))
     }
 }
 

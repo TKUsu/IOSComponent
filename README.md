@@ -1,8 +1,11 @@
-# IOSComponent
+# IOSModule
 
 ## *Tutorial*
 
-- WebCam: 
+- SpeechKit:
+> - by IOS native libray(AVFoundation & Speech)
+> - Text to Speech
+> - Speech to Text
 
 - WebSocket:
 > - Dis/Connect WebSocket
