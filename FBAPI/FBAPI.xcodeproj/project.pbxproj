@@ -18,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D35306FF1FBF6A4F00CD338B /* FBAPI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FBAPI.entitlements; sourceTree = "<group>"; };
 		D37922451FBB50E600638AFB /* FriendListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListTableViewController.swift; sourceTree = "<group>"; };
 		D3D926201FB6F63A008CA17D /* FBAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3D926231FB6F63A008CA17D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +64,7 @@
 		D3D926221FB6F63A008CA17D /* FBAPI */ = {
 			isa = PBXGroup;
 			children = (
+				D35306FF1FBF6A4F00CD338B /* FBAPI.entitlements */,
 				D3D926231FB6F63A008CA17D /* AppDelegate.swift */,
 				D3D926251FB6F63A008CA17D /* ViewController.swift */,
 				D37922451FBB50E600638AFB /* FriendListTableViewController.swift */,
@@ -116,6 +118,11 @@
 					D3D9261F1FB6F63A008CA17D = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -294,6 +301,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FBAPI/FBAPI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 73JT68725H;
 				ENABLE_BITCODE = NO;
@@ -316,6 +324,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FBAPI/FBAPI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 73JT68725H;
 				ENABLE_BITCODE = NO;

@@ -15,6 +15,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var nameTxt: UILabel!
     @IBOutlet weak var emailTxt: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var birthdayLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var customButton: UIButton!
     
@@ -51,7 +55,7 @@ class ViewController: UIViewController {
     func fetchProfile(){
         print("[GET]: FB Detail")
         
-        let parameters = ["fields": "email, first_name, last_name, picture.type(large)"]
+        let parameters = ["fields": "first_name, last_name, gender, age_range, picture.type(large), email, languages, work, location"]
 
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start {
             [weak self] connection, result, error in
@@ -61,31 +65,40 @@ class ViewController: UIViewController {
             }else{
                 let fbresult = result as! Dictionary<String, AnyObject>
                 print("[SUCEESS]: 登入成功")
-                print("[Data] Result: \(fbresult)")
-                
-                if let email = fbresult["email"]{
-                    print("[MAG EMAIL]: \(email)")
-                    self?.emailTxt.text = email as! String
-                }else{
-                    print("[ERROR]: Email isn't found")
-                    self?.emailTxt.text = ""
-                }
-                
-                let firstName = fbresult["first_name"] as! String
-                let lastName = fbresult["last_name"] as! String
-                
-                self?.nameTxt.text = firstName + lastName
-
-                if let picture = fbresult["picture"] as? NSDictionary,
-                    let data = picture["data"] as? NSDictionary,
-                        let url = data["url"] as? String{
-                    let imgURL = NSURL(string: url) as! URL
-                    let imgData = NSData(contentsOf: imgURL) as! Data
-                    let img = UIImage(data: imgData) as! UIImage
-                    self?.imgView.image = img
-                    print("[Data]: Image url = \(url)")
-                }
+                print("""
+                    ==================================================
+                    [Data] Result: \(fbresult)
+                    ==================================================
+                    """)
+                self?.setFBData(fbresult)
             }
+        }
+    }
+    
+    func setFBData(_ data: Dictionary<String, AnyObject>) {
+        //id
+        self.idLabel.text = data["id"] as! String
+        //email
+        if let email = data["email"]{
+            print("[DATA] email: \(email)")
+            self.emailTxt.text = email as! String
+        }else{
+            print("[ERROR]: Email isn't found")
+            self.emailTxt.text = ""
+        }
+        //name
+        let firstName = data["first_name"] as! String
+        let lastName = data["last_name"] as! String
+        self.nameTxt.text = firstName + lastName
+        //picture
+        if let picture = data["picture"] as? NSDictionary,
+            let data = picture["data"] as? NSDictionary,
+            let url = data["url"] as? String{
+            let imgURL = NSURL(string: url)! as URL
+            let imgData = NSData(contentsOf: imgURL)! as Data
+            let img = UIImage(data: imgData) as! UIImage
+            self.imgView.image = img
+            print("[Data]: Image url = \(url)")
         }
     }
 }
