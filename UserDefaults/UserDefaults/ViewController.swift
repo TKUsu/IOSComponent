@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         userDefaults = UserDefaults.standard
         table.separatorStyle = .none
         sync()
+        self.hideKeyboardWhenTappedAround()
     }
 
     @IBAction func updateAction(_ sender: UIButton) {
@@ -35,7 +36,6 @@ class ViewController: UIViewController {
         userDefaults.set(textField.text, forKey: keyText)
         userDefaults.synchronize()
         sync()
-        
     }
     @IBAction func deleteAction(_ sender: UIButton) {
         guard let keyText = keyField.text else {
@@ -48,6 +48,8 @@ class ViewController: UIViewController {
     }
     
     func sync() {
+        keys = [""]
+        values = [""]
         for (key, value) in userDefaults.dictionaryRepresentation() {
             keys.append("\(key)")
             values.append("\(value)")
@@ -70,6 +72,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         cell.keyLabel.numberOfLines = 0
         return cell
     }
-    
-    
 }
+
+//Keyboard
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+

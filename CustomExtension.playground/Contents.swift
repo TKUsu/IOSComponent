@@ -25,7 +25,7 @@ extension UIColor{
 }
 //View Style & Custom Color Background
 extension UIView{
-    func setSenseFoxColor() {
+    func setCustomColor() {
         var gradientLayer: CAGradientLayer = CAGradientLayer()
         gradientLayer.frame = self.bounds
         gradientLayer.colors = [UIColor.init(rgb: 0x6a60ee).cgColor, UIColor.init(rgb: 0x56edff).cgColor]
@@ -34,7 +34,7 @@ extension UIView{
         self.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    func setSenseFoxColorSub() {
+    func setSubView() {
         var gradientLayer: CAGradientLayer = CAGradientLayer()
         gradientLayer.frame = self.bounds
         gradientLayer.colors = [UIColor.init(rgb: 0x6a60ee).cgColor, UIColor.init(rgb: 0x56edff).cgColor]
@@ -55,7 +55,7 @@ extension UIView{
 }
 //Edit style
 extension UITextField{
-    func senseFoxStyle() {
+    func style() {
         self.backgroundColor = UIColor.white.withAlphaComponent(0.8)
     }
 }

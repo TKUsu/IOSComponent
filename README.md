@@ -13,6 +13,10 @@
 > - Import MOS Dictionary: https://gist.github.com/mosluce/4b41cd7f601943558be0800230aa17d1#file-da-swift-L41
 > - Example Server
 
+- UserDefault:
+> - Insert/Update/Delete NSUserDefaults
+> - Show all NSUserDefaults Data
+
 ## *Playground*
 
 - GCD: 
@@ -26,4 +30,8 @@
 > ```
 >    from:[Swift 3學習指南：重新認識GCD應用](https://www.appcoda.com.tw/grand-central-dispatch/)    
 
-
+- CustomExtension:
+>   UIColor: 
+>       `UIColor.init(rgb: 0x6a60ee).cgColor`
+>   UIViewController:
+>       `self.hideKeyboardWhenTappedAround()`
