@@ -28,6 +28,22 @@ class ViewController: UIViewController {
         var email: String
     }
     
+    struct TestJson: Codable {
+        var get: String
+        var post: String
+        var header: TestHeader
+        var file: String
+    }
+    struct TestHeader: Codable {
+        var accept: String
+        var accept_encoding: String
+        var accept_language: String
+        var connect: String
+        var host: String
+        var res: String
+        var user_agent: String
+    }
+    
     @IBAction func submitAction(_ sender: Any) {
         guard let user = nameField.text, nameField.text != "",
             let password = passwordField.text, passwordField.text != "" else{
@@ -39,8 +55,9 @@ class ViewController: UIViewController {
         //        let user1 = ["name": "\(user)", "password": "\(password)"]
         //        guard let data = try? JSONSerialization.data(withJSONObject: user1, options: []) else{return}
         
+        let testUrl = URL(string: "http://scsonic.com/debug.php")
         let url = URL(string: "http://localhost:3000")
-        var request = URLRequest(url: url!)
+        var request = URLRequest(url: testUrl!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -51,7 +68,7 @@ class ViewController: UIViewController {
             let encoder = JSONEncoder()
             let data = try encoder.encode(user1)
             request.httpBody = data
-        }catch{}
+        }catch{print("[ERROR] encode error")}
         
         let task = URLSession.shared.dataTask(with: request) {
             data, response, error in
@@ -68,8 +85,27 @@ class ViewController: UIViewController {
                 email: \(res.user.email)
                 ==============================
                 """
-                print(text)
-            }catch{}
+                print("\(text)")
+            }catch{print("[ERROR] decode error1")}
+            do{
+                try print("\(JSONSerialization.jsonObject(with: data, options: []))\n...\(response)")
+
+                let testRes = try JSONDecoder().decode(TestJson.self, from: data)
+                let header = testRes.header
+                let txt = """
+                                ===========================
+                                get/post: \(testRes.get)/\(testRes.post)
+                                accept: \(header.accept)
+                                accept_encoding: \(header.accept_encoding)
+                                accept_language: \(header.accept_language)
+                                connect: \(header.connect)
+                                host: \(header.host)
+                                Upgrade-Insecure-Requests: \(header.res)
+                                User-Agent: \(header.user_agent)
+                                ==================================
+                    """
+                print(txt)
+            }catch{print("[ERROR] decode error2")}
         }
         task.resume()
     }
