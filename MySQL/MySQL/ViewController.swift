@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         var name: String
         var email: String
     }
-    
+    /*
     struct TestJson: Codable {
         var get: String
         var post: String
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         var res: String
         var user_agent: String
     }
-    
+    */
     @IBAction func submitAction(_ sender: Any) {
         guard let user = nameField.text, nameField.text != "",
             let password = passwordField.text, passwordField.text != "" else{
@@ -55,9 +55,9 @@ class ViewController: UIViewController {
         //        let user1 = ["name": "\(user)", "password": "\(password)"]
         //        guard let data = try? JSONSerialization.data(withJSONObject: user1, options: []) else{return}
         
-        let testUrl = URL(string: "http://scsonic.com/debug.php")
+        //        let testUrl = URL(string: "http://scsonic.com/debug.php")
         let url = URL(string: "http://localhost:3000")
-        var request = URLRequest(url: testUrl!)
+        var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -87,6 +87,7 @@ class ViewController: UIViewController {
                 """
                 print("\(text)")
             }catch{print("[ERROR] decode error1")}
+            /*
             do{
                 try print("\(JSONSerialization.jsonObject(with: data, options: []))\n...\(response)")
 
@@ -106,6 +107,7 @@ class ViewController: UIViewController {
                     """
                 print(txt)
             }catch{print("[ERROR] decode error2")}
+            */
         }
         task.resume()
     }
