@@ -69,4 +69,6 @@ fastlane/test_output
 
 
 # End project
+MySQL/*
 MySQL/
+test/
