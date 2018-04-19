@@ -67,10 +67,5 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 
-# End project
-MySQL/ *
-MySQL/
-# test/
-MySQL/server/index.js
 
-MySQL/MySQL/ViewController.swift
+# End project

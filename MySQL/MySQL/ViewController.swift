@@ -107,8 +107,8 @@ class ViewController: UIViewController {
                     """
                 print(txt)
             }catch{print("[ERROR] decode error2")}
+<<<<<<< HEAD
             */
-        }
         task.resume()
     }
 }
